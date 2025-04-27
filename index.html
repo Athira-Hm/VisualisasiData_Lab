@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #barchart {
+      margin: auto;
+      
+    }
+    .bar {
+      stroke: #fff;
+      stroke-width: 1px;
+    }
+    .x-axis text {
+      text-anchor: middle;
+      font-size: 12px;
+    }
+    .y-axis text {
+      font-size: 12px;
+    }
+    .country-label {
+      text-anchor: middle;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .condition-group {
+      stroke: #ddd;
+      stroke-width: 1px;
+      stroke-dasharray: 2,2;
+      fill: none;
+    }
+    .condition-label {
+      text-anchor: middle;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .legend {
+      display: flex;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+    .chart-title {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .axis-label {
+      font-size: 14px;
+      font-weight: bold;
+    }
+          #legenda {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin: 5px;
+    }
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    #grafik {
+      display: flex;
+      justify-content: center;
+      /* height: 100vh; */
+    }
+    #title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      /* margin-top: 20px; */
+    }
+    
+    </style>
+</head>
+<body>
+  <section>
+
+    <div id="container">
+      <div id="title"></div>
+      <div id="grafik"></div>
+      <div id="legenda"></div>
+    </div>
+  </section>
+  <section class="flex justify-center items-center flex-col mt-10 border-t-1">
+    <div class="chart-title">Kondisi Kesehatan Mental Berdasarkan Negara Diwarnai oleh Tingkat Stres</div>
+  <div id="barchart"></div>
+  </section>
+  <section class="flex justify-center items-center flex-col mt-10 border-t-1">
+    <h1 class="font-bold text-[20px]">Tingkat Stress untuk Tiap Negara</h1>
+    <svg id="chart" width="960" height="500" class=""></svg>
+  </section>
+
+<script>
+    
+   
+</script>
+<script src="question6.js"></script>
+<script src="atah.js"></script> 
+<script src="diki.js"></script>  
+
+
+</body>
+</html>
