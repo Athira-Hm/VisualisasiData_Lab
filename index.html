@@ -4,130 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:,">
-
     <title>Document</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    #barchart {
-      margin: auto;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+     
+      .bar {
+        stroke: #fff;
+        stroke-width: 1px;
+      }
+      .x-axis text, .y-axis text {
+        text-anchor: middle;
+        font-size: 12px;
+      }
+      .country-label {
+        text-anchor: middle;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .condition-group {
+        stroke: #ddd;
+        stroke-width: 1px;
+        stroke-dasharray: 2,2;
+        fill: none;
+      }
+      .condition-label {
+        text-anchor: middle;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .legend {
+        display: flex;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        margin-bottom: 10px;
+      }
+      .legend-color {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
+      .chart-title {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .axis-label {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      #legenda {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        margin: 5px;
+      }
+      .legend-color {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+      section {
+        position: relative;
       
-    }
-    .bar {
-      stroke: #fff;
-      stroke-width: 1px;
-    }
-    .x-axis text {
-      text-anchor: middle;
-      font-size: 12px;
-    }
-    .y-axis text {
-      font-size: 12px;
-    }
-    .country-label {
-      text-anchor: middle;
-      font-weight: bold;
-      font-size: 16px;
-    }
-    .condition-group {
-      stroke: #ddd;
-      stroke-width: 1px;
-      stroke-dasharray: 2,2;
-      fill: none;
-    }
-    .condition-label {
-      text-anchor: middle;
-      font-size: 12px;
-      font-weight: bold;
-    }
-    .legend {
-      display: flex;
-      margin-top: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      margin-right: 20px;
-      margin-bottom: 10px;
-    }
-    .legend-color {
-      width: 20px;
-      height: 20px;
-      margin-right: 8px;
-    }
-    .chart-title {
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-    .axis-label {
-      font-size: 14px;
-      font-weight: bold;
-    }
-          #legenda {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      margin: 5px;
-    }
-    .legend-color {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 5px;
-    }
-    #grafik {
-      display: flex;
-      justify-content: center;
-      /* height: 100vh; */
-    }
-    #title {
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-      /* margin-top: 20px; */
-    }
-    
+      }
+      section h1 {
+        position: sticky;
+        top: 20px;
+        background: white;
+        padding: 10px;
+        z-index: 10;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .active-section {
+        background-color: #f9f9f9;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      }
     </style>
 </head>
-<body>
-  <section>
-
-    <div id="container">
-      <div id="title"></div>
-      <div id="grafik"></div>
-      <div id="legenda"></div>
-    </div>
-  </section>
-  <section class="flex justify-center items-center flex-col mt-10 border-t-1">
-    <div class="chart-title">Kondisi Kesehatan Mental Berdasarkan Negara Diwarnai oleh Tingkat Stres</div>
-  <div id="barchart"></div>
-  </section>
-  <section class="flex justify-center items-center flex-col mt-10 border-t-1">
-    <h1 class="font-bold text-[20px]">Tingkat Stress untuk Tiap Negara</h1>
-    <svg id="chart" width="960" height="500" class=""></svg>
-  </section>
-
-<script>
+<body class="">
+    <section id="section1" class="flex justify-center items-center flex-col mt-10 border-t-1">
+      
+        <h1>Apakah pola diet seseorang berhubungan dengan tingkat stres yang mereka alami?</h1>
+        <div id="grafik"></div>
+        <div id="legenda"></div>
+      </section>
     
-   
-</script>
-<script src="question6.js"></script>
-<script src="atah.js"></script> 
-<script src="diki.js"></script>  
+    <section id="section2" class="flex justify-center items-center flex-col mt-10 border-t-1 h-100vh">
+      <h1>Bagaimana distribusi gangguan kesehatan mental berdasarkan kategori tingkat stres?</h1>
+      <div id="barchart"></div>
+    </section>
+    
+    <section id="section3" class="flex justify-center items-center flex-col mt-10 border-t-1 h-150vh">
+      <h1>Negara mana yang memiliki tingkat stres rata-rata tertinggi dan terendah?</h1>
+      <svg id="chart" width="960" height="500"></svg>
+    </section>
+
+    <script>
+      // Select sections menggunakan D3
+      const sections = d3.selectAll('section');
+      
+      
+  async function replaceOrCreateScript(src) {
+  const existingScript = document.querySelector(`script[src="${src}"]`);
+  if (document.querySelectorAll(`script[src="${src}"]`).length > 1) {
+    const scripts = document.querySelectorAll(`script[src="${src}"]`);
+    scripts.forEach((script, index) => {
+      if (index < scripts.length - 1) {
+        script.remove();
+      }
+    });
+  }
+  if (existingScript) {
+    existingScript.remove(); // Hapus script yang sudah ada
+  }
+  const script = document.createElement('script');
+  script.src = src;
+  document.body.appendChild(script);   // Tambah script baru
+}
 
 
+     
+      // Intersection Observer
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.6
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const sectionId = entry.target.id;
+          const navDot = d3.select(`circle[data-section="${sectionId}"]`);
+          const section = d3.select(`#${sectionId}`);
+
+          if (entry.isIntersecting) {
+            section.classed('active-section', true)
+              .style('transform', 'scale(1.05)')
+              .style('box-shadow', '0 8px 16px rgba(0,0,0,0.2)')
+              .style('z-index', '10');
+            navDot.attr('fill', '#333').attr('r', 8);
+
+            switch (sectionId) {
+              case 'section1':
+                animateSection1();
+                break;
+              case 'section2':
+                animateSection2();
+                break;
+              case 'section3':
+                animateSection3();
+                break;
+            }
+          } else {
+            section.classed('active-section', false)
+              .style('transform', 'scale(1)')
+              .style('box-shadow', 'none')
+              .style('z-index', '1');
+            navDot.attr('fill', '#ccc').attr('r', 6);
+          }
+        });
+      }, observerOptions);
+
+      sections.each(function() {
+        observer.observe(this);
+      });
+
+      
+      // Section 1: Scatter plot (Diet vs. Tingkat Stres)
+      function animateSection1() {
+       replaceOrCreateScript('atah.js');
+        console.log('Animating Section 1: Diet vs. Stress');
+      }
+
+      // Section 2: Bar chart (Distribusi gangguan kesehatan mental berdasarkan tingkat stres)
+      function animateSection2() {
+             replaceOrCreateScript('diki.js');
+
+        console.log('Animating Section 2: Mental Health Distribution');
+      }
+
+      // Section 3: Bar chart horizontal (Tingkat stres rata-rata per negara)
+      function animateSection3() {
+                    replaceOrCreateScript('question6.js');
+
+        console.log('Animating Section 3: Stress by Country');
+      }
+
+      // Pastikan scrolling mulus
+      document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
 </body>
 </html>

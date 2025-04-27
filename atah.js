@@ -2,9 +2,8 @@ d3.csv("Mental_Health_Lifestyle_Dataset.csv", d3.autoType).then(visualize);
 
     async function visualize(data){
         const container = d3.select("#container");
-        const title = container.select("#title");
-        const grafik = container.select("#grafik");
-        const legenda = container.select("#legenda");
+        const title = d3.select("#title");
+        const legenda = d3.select("#legenda");
         
         title.text("Hubungan Tipe Diet dan Tingkat Stres");
         // title.text("Mental Health X Diet type");
@@ -136,3 +135,4 @@ d3.csv("Mental_Health_Lifestyle_Dataset.csv", d3.autoType).then(visualize);
     .text(d => d);
 
     }
+
