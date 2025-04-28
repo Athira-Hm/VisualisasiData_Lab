@@ -103,26 +103,55 @@
     </style>
 </head>
 <body>
-  <section>
+  <div class="sticky top-5 bg-white z-10">
+    <nav class="flex justify-center flex-wrap gap-4 mt-4">
+      <a href="#section3" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition" onclick="showSection('section3')">
+        Negara dengan Tingkat Stres Tertinggi & Terendah
+      </a>
+      <a href="#section2" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition" onclick="showSection('section2')">
+        Distribusi Gangguan Kesehatan Mental
+      </a>
+      <a href="#section1" class="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition" onclick="showSection('section1')">
+        Hubungan Pola Diet & Tingkat Stres
+      </a>
+    </nav>
+  </div>
 
+  <!-- SECTION -->
+  <section id="section1" class="hidden">
     <div id="container">
       <div id="title"></div>
       <div id="grafik"></div>
       <div id="legenda"></div>
     </div>
   </section>
-  <section class="flex justify-center items-center flex-col mt-10 border-t-1">
+
+  <section id="section2" class="hidden flex justify-center items-center flex-col mt-10 border-t-1 h-full">
     <div class="chart-title">Kondisi Kesehatan Mental Berdasarkan Negara Diwarnai oleh Tingkat Stres</div>
-  <div id="barchart"></div>
+    <div id="barchart" class="top-0 -mt-50"></div>
   </section>
-  <section class="flex justify-center items-center flex-col mt-10 border-t-1">
+
+  <section id="section3" class="flex justify-center items-center flex-col mt-10 border-t-1 h-screen">
     <h1 class="font-bold text-[20px]">Tingkat Stress untuk Tiap Negara</h1>
     <svg id="chart" width="960" height="500" class=""></svg>
   </section>
 
+
 <script>
     
-   
+   function showSection(sectionId) {
+    // Ambil semua section
+    const sections = document.querySelectorAll('section');
+
+    // Sembunyikan semua section
+    sections.forEach(section => {
+        section.classList.add('hidden');
+    });
+
+    // Tampilkan hanya section yang dipilih
+    const target = document.getElementById(sectionId);
+    target.classList.remove('hidden');
+}
 </script>
 <script src="question6.js"></script>
 <script src="atah.js"></script> 
